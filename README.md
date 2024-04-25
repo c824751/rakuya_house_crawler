@@ -1,6 +1,6 @@
 # 自動爬蟲程式
 
-這是一個自動爬取特定網站資料並將其發送到 Telegram Bot 和 Google 試算表的程式。這個程式是使用 JavaScript 編寫的 Google Apps Script，用於自動化爬蟲和資料處理。
+這是一個自動爬取樂屋網售房資料並將其發送到 Telegram Bot 和 Google 試算表的程式。這個程式是使用 JavaScript 編寫的 Google Apps Script，用於自動化爬蟲和資料處理。
 
 ## 使用前提
 
