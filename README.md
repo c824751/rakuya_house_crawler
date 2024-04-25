@@ -1,36 +1,59 @@
-樂屋網售房自動爬蟲程式說明文件
-這份程式是一個用於自動爬取樂屋網售房資料並將其發送到 Telegram Bot 和 Google 試算表的程式。它是用 JavaScript 編寫的 Google Apps Script，用於 Google 試算表的自動化。
+# 自動爬蟲程式
 
-使用方法
-設置 data 變數：在程式的開始處，可以定義要爬取的網站資訊。。可以設置以下屬性：
-url：要爬取的網站 URL。
-telegramBotToken：Telegram Bot 的令牌 (Token)，用於發送訊息。
-telegramChatId：Telegram 聊天 ID，指定訊息要發送到哪個聊天。
-sheetName：Google 試算表的工作表名稱，用於將資料存儲到這個工作表中。
-triggerTime：指定何時觸發爬取，目前已註解掉，可以根據需要啟用。
-main 函數：這是程式的入口點，它會遍歷 data 中的每個網站配置，然後爬取資料並執行後續操作。
+這是一個自動爬取特定網站資料並將其發送到 Telegram Bot 和 Google 試算表的程式。這個程式是使用 JavaScript 編寫的 Google Apps Script，用於自動化爬蟲和資料處理。
 
-其他幫助函數：
-getPageCount：從 HTML 中獲取總頁數。
-getPageItems：解析 HTML 並提取每個項目的資料。
-checkDuplicateItem：檢查項目是否重複，避免重複發送到 Telegram 和重複存儲到試算表中。
-processItem：解析單個項目的 HTML，獲取標題、連結、價格等資料。
-sendToTelegramBot：將訊息通過 Telegram Bot 發送到指定的聊天。
-insertRows：將資料插入到指定 Google 試算表的工作表中。
+## 使用前提
 
-注意事項
-請確保設置了 Google Apps Script 環境並將程式碼複製到該環境中。
-確保已設置 Telegram Bot 並獲取了相應的 Token 和聊天 ID。
-確保 Google 試算表已設置並有指定的工作表名稱，並且已授權 Google Apps Script 訪問此試算表。
-運行頻率
-程式中包含了一些延遲，用於避免對目標網站和 Telegram API 的過度請求，請根據需要調整這些延遲時間。
-附加說明
-如需更多技術支援或說明，請隨時聯繫我們，我們很樂意提供協助。
+- 需要使用 Google Apps Script 運行此程式。
+- 需要有有效的 Telegram Bot Token 和 Chat ID，以便將爬取的數據發送到 Telegram。
+- 需要一個 Google 帳號和 Google 雲端硬碟，以便將數據存儲到 Google 試算表中。
 
-這份說明文件可以幫助您更好地理解程式的運作方式和配置方法。希望對您有所幫助！
+## 功能特性
 
+- 爬取指定網站的數據，並進行處理和篩選。
+- 將篩選後的數據通過 Telegram Bot 發送到指定的聊天。
+- 將數據存儲到 Google 試算表中，以便進一步分析和處理。
 
+## 配置步驟
 
+1. **設置 Telegram Bot**
 
+   - 創建一個 Telegram Bot，獲取 Bot Token。
+   - 獲取需要將數據發送的 Chat ID。
 
+2. **設置 Google 試算表**
 
+   - 創建一個 Google 試算表，添加工作表用於存儲爬取的數據。
+
+3. **修改程式碼**
+
+   - 將 Telegram Bot Token 和 Chat ID 填入程式碼中的 `data` 配置部分。
+   - 將 Google 試算表的工作表名稱填入程式碼中的 `data` 配置部分。
+
+4. **部署程式碼**
+
+   - 將程式碼複製粘貼到 Google Apps Script 中。
+   - 部署為 Web 應用程式，獲取 URL。
+
+5. **設置定時任務**
+
+   - 使用 Google Apps Script 的觸發器功能，設置定時任務，定期執行爬取操作。
+
+## 示例程式碼說明
+
+- `data`：配置要爬取的網站 URL、Telegram Bot Token、Chat ID 和 Google 試算表工作表名稱等信息。
+- `main`：主函數，用於執行爬取和處理數據的流程。
+- 其他輔助函數：用於處理 HTML、發送 Telegram 訊息、操作 Google 試算表等功能。
+
+## 注意事項
+
+- 程式中包含了一些延遲和異常處理，以避免過度請求和錯誤。
+- 請確保對爬取的網站和發送到 Telegram 的訊息進行合法使用，遵守相關的法律法規和使用協議。
+
+## 技術支援
+
+如有任何疑問或需要進一步的幫助，請隨時聯繫。
+
+---
+
+希望這份 README 模板能幫助您更好地了解和使用自動爬蟲程式。祝您使用愉快！
